@@ -1,5 +1,6 @@
 package pavelkim.homework11.abs;
 
+import pavelkim.homework11.NotEnoughMoneyException;
 import pavelkim.homework11.actions.TakeMoney;
 import pavelkim.homework11.actions.PutMoney;
 
@@ -15,8 +16,8 @@ public abstract class MoneyPoint implements TakeMoney, PutMoney {
     }
 
     @Override
-    public void takeMoney(double sum) {
-        this.cashAmount = this.cashAmount -sum;
+    public void takeMoney(double sum) throws NotEnoughMoneyException {
+            this.cashAmount = this.cashAmount - sum;
     }
 
     @Override

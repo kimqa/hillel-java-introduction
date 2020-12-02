@@ -17,9 +17,13 @@ public class Account {
         return id;
     }
 
-    public void getMoneyFormMoneyPoint(double sum, MoneyPoint moneyPoint) {
-        moneyPoint.takeMoney(sum);
-        this.balance = this.balance - sum;
+    public void getMoneyFormMoneyPoint (double sum, MoneyPoint moneyPoint) throws NotEnoughMoneyException {
+        try {
+            moneyPoint.takeMoney(sum);
+            this.balance = this.balance - sum;
+        } catch (RuntimeException e) {
+            System.out.println("No money");
+        }
     }
 
     public void putMoneyInMoneyPoint(double sum, MoneyPoint moneyPoint) {
