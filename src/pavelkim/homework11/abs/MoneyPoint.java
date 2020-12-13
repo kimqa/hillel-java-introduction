@@ -17,6 +17,9 @@ public abstract class MoneyPoint implements TakeMoney, PutMoney {
 
     @Override
     public void takeMoney(double sum) throws NotEnoughMoneyException {
+        if (this.cashAmount < sum) {
+            throw new NotEnoughMoneyException("NotEnoughMoneyException cashAmount < sum");
+        }
             this.cashAmount = this.cashAmount - sum;
     }
 
